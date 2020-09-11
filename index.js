@@ -47,6 +47,8 @@ const burger = {
     if(discType === "teacher") {
       return this.price - (this.price * 0.25) + " Is Your New Price"
     }else if (discType === "student") {
+      return this.price - (this.price * 0.25) + " Is Your New Price"
+    }else{
       return this.price - (this.price * 0.10) + " Is Your New Price"
     }
   }// discount
@@ -78,11 +80,13 @@ function createNewReview(name, rating, feedback){
 }
 console.log(createNewReview("Jennifer", 4, "I loved the food and atmosphere. Would come back!"));
 
-
 /* Task 5: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"*/
 
-console.log(reviews[7].feedback = `this place is chill with really cool people, great for getting work done on weekdays`);
-console.log(reviews);
+function addString(arr){
+  arr[arr.length - 1].feedback = 'this place is chill with really cool people, great for getting work done on weekdays'
+  return arr;
+}
+addString(reviews);
 
 /*  Task 6: Write a function to return a review based on the index of the review in the array.
 
@@ -112,13 +116,13 @@ and should return a string in the format `name} gave the restaurant a {rating}, 
 
 For example, if getLastReview is invoked passing the reviews array it will return `Reyna gave the restaurant a 3.5 star review and their feedback was: "this place is chill with really cool people, great for getting work done on weekdays"`.
 */
-function getLastReview(reynaReview, index) {
+function getLastReview(arr){
 
-    return `${reynaReview[index].name} gave the restuarant a ${reynaReview[index].rating}, and their feedback was: ${reynaReview[index].feedback}`
-  } 
-  console.log(getLastReview())
-//NOTES
-// needs last item in array
+   arr.push(`${arr[arr.length - 1].name} gave the restaurant a ${arr[arr.length - 1].rating}, and their feedback was: ${arr[arr.length - 1].feedback}`)
+  return arr;
+
+}
+getLastReview(reviews)
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
 
